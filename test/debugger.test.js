@@ -41,3 +41,16 @@ test('test setting a breakpoint', function (t) {
   t.equal(true, true, 'Mount.prototype.getPath found');
   t.end();
 });
+
+test('skip unnecessary debugger pauses', function (t) {
+  const pauseContextDueToOOM = {reason: 'OOM'};
+  t.assert(dbg.ignorePause(pauseContextDueToOOM));
+
+  const pauseContextWithoutBreakpoints = {reason: 'other', hitBreakpoints: []};
+  t.assert(dbg.ignorePause(pauseContextWithoutBreakpoints));
+
+  const pauseContextWithBreakpoints = {reason: 'other', hitBreakpoints: ['breakpoint-id']};
+  t.assert(!dbg.ignorePause(pauseContextWithBreakpoints));
+
+  t.end();
+});
