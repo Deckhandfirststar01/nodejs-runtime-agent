@@ -325,5 +325,16 @@
     "version": [
       "<3.0.2"
     ]
+  },
+  {
+    "methodId": {
+      "className": null,
+      "filePath": "herp.js",
+      "methodName": "derp"
+    },
+    "packageName": "mrderp",
+    "version": [
+      "<3.0.2"
+    ]
   }
 ]

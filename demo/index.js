@@ -32,6 +32,9 @@ const server = http.createServer(
   })
 );
 
+const mrderp = require('mrderp');
+mrderp.derp();
+
 server.listen(PORT, () => console.log(`Demo server started, hit http://localhost:${PORT}/hello.txt to try it`));
 
 module.exports = server;
